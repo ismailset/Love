@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Love Letter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Garamond', serif;
+            overflow: hidden;
+        }
+
+        /* Color Palette */
+        :root {
+            --pastel-rose: #f5e6e0;
+            --blush: #fce4ec;
+            --cream: #fffaf7;
+            --rose-accent: #e8a8a8;
+            --soft-brown: #8b7355;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        /* Screen Container */
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        .container.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Button Screen */
+        .button-screen {
+            background: linear-gradient(135deg, var(--pastel-rose) 0%, var(--blush) 100%);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .button-screen h1 {
+            font-size: 2.5rem;
+            color: var(--soft-brown);
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: 1px;
+            animation: slideDown 0.8s ease-out;
+            padding: 0 1rem;
+            text-balance: true;
+        }
+
+        .cta-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-family: 'Georgia', serif;
+            border: none;
+            background-color: var(--rose-accent);
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 16px var(--shadow);
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            background-color: #d9969a;
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Letter Screen */
+        .letter-screen {
+            background: var(--pastel-rose);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .letter-card {
+            background-color: var(--cream);
+            width: 100%;
+            max-width: 600px;
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px var(--shadow), 0 0 0 1px rgba(0, 0, 0, 0.05);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .letter-card h2 {
+            font-size: 1.8rem;
+            color: var(--soft-brown);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .letter-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--soft-brown);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            letter-spacing: 0.3px;
+        }
+
+        .letter-card p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .signature {
+            margin-top: 2.5rem;
+            font-size: 1.3rem;
+            text-align: right;
+            color: var(--rose-accent);
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        .back-button {
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+            font-family: 'Georgia', serif;
+            border: 1px solid var(--rose-accent);
+            background-color: transparent;
+            color: var(--rose-accent);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--rose-accent);
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .button-screen h1 {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
+
+            .letter-card {
+                padding: 2rem 1.5rem;
+                max-width: 90%;
+                border-radius: 8px;
+            }
+
+            .letter-card h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .letter-card p {
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 1.2rem;
+            }
+
+            .signature {
+                font-size: 1.1rem;
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .button-screen h1 {
+                font-size: 1.6rem;
+                margin: 0 1rem;
+            }
+
+            .cta-button {
+                padding: 0.85rem 1.8rem;
+                font-size: 0.95rem;
+            }
+
+            .letter-card {
+                padding: 1.5rem 1.25rem;
+                margin: 0 1rem;
+            }
+
+            .letter-card h2 {
+                font-size: 1.3rem;
+            }
+
+            .letter-card p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Button Screen -->
+    <div class="container button-screen" id="buttonScreen">
+        <h1>A Little Love Note</h1>
+        <button class="cta-button" onclick="showLetter()">Click here 💌</button>
+    </div>
+
+    <!-- Letter Screen -->
+    <div class="container hidden letter-screen" id="letterScreen">
+        <div class="letter-card">
+            <h2>My Dearest,</h2>
+            
+            <p>
+                From the moment our eyes first met, my world transformed into something infinitely more beautiful. Every word you speak becomes a melody in my heart, and every smile of yours lights up the corners of my soul in ways I never knew possible.
+            </p>
+
+            <p>
+                You are not just my love, but my greatest adventure. In your presence, I have found home—not in a place, but in the warmth of your embrace, in the kindness of your words, in the gentle way you see me. You make me believe in the magic of forever.
+            </p>
+
+            <p>
+                With you, I've discovered that true love isn't found in grand gestures alone, but in the quiet moments—your hand in mine, your laughter echoing through my days, the way you understand me without words. You are my dream come true, my answered prayer, my greatest blessing.
+            </p>
+
+            <p>
+                Thank you for choosing to walk this beautiful path with me. Thank you for loving me with a love so tender and true. I promise to cherish you, to stand beside you through every season, and to love you more deeply with each passing day.
+            </p>
+
+            <div class="signature">Forever yours ❤️</div>
+
+            <button class="back-button" onclick="showButton()">← Back</button>
+        </div>
+    </div>
+
+    <script>
+        function showLetter() {
+            document.getElementById('buttonScreen').classList.add('hidden');
+            document.getElementById('letterScreen').classList.remove('hidden');
+        }
+
+        function showButton() {
+            document.getElementById('letterScreen').classList.add('hidden');
+            document.getElementById('buttonScreen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
