@@ -12,11 +12,11 @@ export function WelcomeScreen({ onOpenLetter }: WelcomeScreenProps) {
 
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      <div className="absolute top-20 right-20 w-64 h-64 bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" />
-      <div className="absolute bottom-20 left-20 w-64 h-64 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" />
-      <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" />
+      <div className="absolute top-20 right-20 w-64 h-64 bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse pointer-events-none" />
+      <div className="absolute bottom-20 left-20 w-64 h-64 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col items-center justify-center gap-8 max-w-md mx-auto">
+      <div className="relative z-20 flex flex-col items-center justify-center gap-8 max-w-md mx-auto pointer-events-auto">
         <div className="animate-bounce" style={{ animationDuration: "3s" }}>
           <Heart className="w-12 h-12 text-rose-400 fill-rose-400" />
         </div>
@@ -33,7 +33,7 @@ export function WelcomeScreen({ onOpenLetter }: WelcomeScreenProps) {
           onClick={onOpenLetter}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className={`mt-6 px-8 py-4 rounded-full font-serif text-lg font-semibold transition-all duration-500 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl ${
+          className={`mt-6 px-8 py-4 rounded-full font-serif text-lg font-semibold transition-all duration-500 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl cursor-pointer ${
             isHovered
               ? "bg-rose-400 text-white shadow-rose-300/50"
               : "bg-white text-rose-600 hover:bg-rose-50 shadow-rose-200/50"

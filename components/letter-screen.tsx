@@ -69,7 +69,7 @@ export function LetterScreen({ onBack }: LetterScreenProps) {
 
             <div className="text-right space-y-1.5 xs:space-y-2 sm:space-y-3">
               <p className="font-serif italic text-rose-600 text-base xs:text-lg sm:text-xl">Forever yours,</p>
-              <p className="font-serif text-xl xs:text-2xl sm:text-3xl font-semibold text-rose-700">MARIA</p>
+              <p className="font-serif text-xl xs:text-2xl sm:text-3xl font-semibold text-rose-700">ORANGE</p>
               <p className="text-xl xs:text-2xl sm:text-3xl">❤️</p>
               <p className="font-serif italic text-rose-400 text-xs xs:text-sm">All my love, always</p>
             </div>
